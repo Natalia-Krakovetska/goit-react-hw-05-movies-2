@@ -1,3 +1,4 @@
-export default function NotFound() {
+const NotFound = ()=> {
     
 }
+export default NotFound;

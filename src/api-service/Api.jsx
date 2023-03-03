@@ -19,6 +19,8 @@ export const fetchFullMovieInformation = async id => {
     `movie/${id}?api_key=${KEY}&language=en-US`
   );
   return response.data;
+
+
 };
 export const fetchMovieActors = async id => {
   const response = await axios.get(
