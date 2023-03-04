@@ -3,13 +3,13 @@ import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { MovieCard } from '../components/movieCard/MovieCard';
 
+
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
     const locRef = useRef(location.state?.from ?? '/movies');
-    console.log(movie)
-
+  
   useEffect(() => {
     async function getFullMovieInformation() {
       try {
@@ -25,7 +25,11 @@ const MovieDetails = () => {
   return (
     <>
       <div>
-        <Link to={locRef.current}>Go back</Link>
+        <Link to={locRef.current}>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fillRule="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16" >
+  <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+          Go back</Link>
       </div>
       <MovieCard movie={movie} />
       <div>

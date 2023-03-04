@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {MovieContainer, MovieImg} from "./movieList.styled"
 export const MoviesList = ({ movies }) => {
+  const location = useLocation();
   return (
-    <div>
+    <MovieContainer>
       {movies.map(movie => (
         <div key={movie.id}>
-          <Link to={`movie/${movie.id}`}>
-                      <img
+          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                      <MovieImg
                           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                           alt={movie.title}
                           width="300"
@@ -17,7 +19,7 @@ export const MoviesList = ({ movies }) => {
           </Link>
         </div>
       ))}
-    </div>
+    </MovieContainer>
   );
 };
 MoviesList.propTypes = {
